@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<title> Titre </title>
+		<script>
+			
+			function envoi(){
+				var body = {"URI":document.getElementById('IdURI').value, 
+							"Commentaire":document.getElementById('IdCommentaire').value};
+				console.log(body); 
+				//<!-- var route = "http://localhost:3000/annotation"; -->
+				var route = "/annotation";
+				fetch(route, {    method:'POST', 
+								body: JSON.stringify(body) ,
+									headers:{'Content-Type': 'application/json'}
+								  //mode:"cors", 
+							}).then(
+					function(res){ 
+						window.location.reload();
+						console.log(body);
+					});
+			}
+		
+		</script>
+	</head>
+	<body>
+
+		<form autocomplete="off">
+			<p>
+				<label for="URI">URI :</label>
+				<input type="text" name="URI" id="IdURI" placeholder="" size="30" maxlength="20">
+			</p>
+			<p>
+				<label for="Commentaire">Ajoutez commentaire</label><br>
+				<textarea name="Commentaire" id="IdCommentaire" size="30"></textarea>
+			</p>
+			<p> 
+				<button onclick="envoi()" type="button">Envoyer</button>
+			</p>
+		</form>
+
+	</body>
+</html>
+
+
+fetch 
