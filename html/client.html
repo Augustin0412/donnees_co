@@ -37,13 +37,13 @@
 		<form id="monFormulaire">
 
 			<label for="uri">URI:</label>
-            <input type="text" id="uri" name="uri">
+            <input type="text" id="uri" name="uri"><br>
 
             <label for="note">Annotation:</label>
-            <input type="number" id="note" name="note">
+            <input type="number" id="note" name="note"><br>
     
             <label for="com">Commentaire:</label>
-            <input type="text" id="com" name="com">
+            <input type="text" id="com" name="com"><br>
     
             <button type="submit" onclick="envoi()">Envoyer</button>
         </form>
@@ -51,30 +51,30 @@
 
 
 		
-		<h1>Récupérer 1 annotation</h1>
-		<form action="/annotation" method="GET">
-			<label for="IdAnnot">Identifiant annotation recherché:</label>
-			<input type="number" id="IdAnnot" name="IdAnnot">
-			<label for="FormatIdAnnot">Format de réponse:</label>
+		<h1>Récupérer une annotation grâce à l'ID de l'annotation</h1>
+		<form action="/annotation" method="GET"> <!-- envoie une requete get avec la route /annotation-->
+			<label for="IdAnnot">Identifiant annotation recherchée:</label>
+			<input type="number" id="IdAnnot" name="IdAnnot"><br>
+			<label for="FormatIdAnnot">Format de réponse souhaité:</label>
 				<select name="FormatIdAnnot" id="FormatIdAnnot">
 					<option value="html">html</option>
 					<option value="Json">Json</option>
-				</select>
-				<br>
+				</select><br>
+				
 			<input type="submit" value="Récupérer">
 		</form>
 		<p id="IdAnnot"></p>
 
 
 		<h1>Récupérer toutes les annotations à 1 ressource</h1>
-		<form action="/URI" method="get">
+		<form action="/URI" method="get">  <!-- envoie une requete get avec la route /URI-->
 			<label for="recupUri">URI recherchée:</label>
-			<input type="text" id="recupUri" name="recupUri">
-			<label for="FormatIdAnnot">Format de réponse:</label>
+			<input type="text" id="recupUri" name="recupUri"><br>
+			<label for="FormatIdAnnot">Format de réponse souahité :</label>
 				<select name="FormatIdAnnot" id="FormatIdAnnot">
 					<option value="html">html</option>
 					<option value="Json">Json</option>
-				</select>
+				</select><br>
 				<br>
 			<input type="submit" value="Récupérer">
 		</form>
@@ -86,8 +86,7 @@
 				<select name="FormatIdAnnot" id="FormatIdAnnot">
 					<option value="html">html</option>
 					<option value="Json">Json</option>
-				</select>
-				<br>
+				</select><br>
 			<input type="submit" value="Tout récupérer">
 		</form>
 
