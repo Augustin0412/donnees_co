@@ -136,43 +136,6 @@ app.get("/URI/:recupUri", function(req, res){
 });
 
 
-//lance la page de l'uri correspondante
-// app.get("/annotation/:Road", function(req, res){
-//     const id = req.params.Road // Récupérer l'identifiant de l'utilisateur depuis la requête POST    
-    
-//     var Exist=Object.keys(data).includes(id);
-//     var ChoixFormat=format;
-
-// 	if (ChoixFormat=="html"){
-// 		res.set('Content-Type', 'text/html');
-//         if (Exist){
-//             let html = "<h2>Annotation correspondante à l'identifiant " + id + " :</h2><br>";
-//             html += "<p><strong>URI=</strong>" + data[id].URI + "<br><strong>Note=</strong>" + data[id].Note + "<br><strong>Commentaire=</strong>" + data[id].Commentaire + "</p>"
-//             res.send(html); 
-//          }
-//          else {
-//             res.send("Aucune annotation n'est associée à cette clé");
-//          }
-// 	}
-// 	else {
-// 		if (ChoixFormat=="Json"){
-//             res.set('Content-Type', 'application/json');
-//             if (Exist){
-//                 res.send(data[id]); 
-//              }
-//              else {
-//                 res.send("Aucune annotation n'est associée à cette clé");
-//              }
-// 		}	
-// 	}
-// });
-
-
-
-
-
-
-
 
 //Affiche toutes les annotations qui ont été crée
 app.post('/recupAll', (req, res) => { // si on recoit une requete post avec la route /recupeALL, voilà ce qu'il se passe.

@@ -12,7 +12,7 @@
 							"Commentaire":document.getElementById('com').value};
 				const resultat = document.getElementById('message');
 				event.preventDefault();
-				let route = "/formulaire";
+				let route = "https://donneesconnectee.onrender.com/formulaire";
 				fetch(route, {
 					method: 'POST',
 					body: JSON.stringify(body) ,
@@ -79,6 +79,10 @@
 			<input type="submit" value="Récupérer">
 		</form>
 
+<!-- get permet de voir des paramètres alors que post n'a pas de paramètres -->
+<!-- get affiche on prend query si on met en paramètre
+.body si c'est un post
+.param si c'est /: -->
 
 		<h1>Récupérer toutes les annotations du serveur</h1>
 		<form action="/recupAll" method="post"> <!-- envoie une requete post avec la route /recupALL-->
