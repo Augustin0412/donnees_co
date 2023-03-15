@@ -4,6 +4,7 @@ var data = {};
 var data_uri = {};
 var id = 0;
 var format;
+var cors = require('cors'); //on rajoute les CORS
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -19,7 +20,13 @@ app.get("/formulaire", function(req, res) {
     res.sendfile("index.html");
 });
 
-
+//problème des cors résolu ...?
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    next();
+});
 
 //crée les annotations dans un objet dico json
 app.post("/formulaire", function(req, res){
