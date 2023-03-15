@@ -137,49 +137,49 @@ app.get("/URI", function(req, res){
 	}
 });
 
-// app.get("/URI/:recupUri", function(req, res){
-//     const uri = req.params.recupUri;
+app.get("/URI/:recupUri", function(req, res){
+    const uri = req.params.recupUri;
 
-//     var Exist=Object.keys(data_uri).includes(uri); //bool qui vérifie si la variable id est une clé existante de l'objet data.
-//     var ChoixFormat=format; //choix du format des données
+    var Exist=Object.keys(data_uri).includes(uri); //bool qui vérifie si la variable id est une clé existante de l'objet data.
+    var ChoixFormat=format; //choix du format des données
 
-//     if (ChoixFormat=="html"){ // si le choix demandé est html
-// 		res.set('Content-Type', 'text/html'); // indique que le contenu de la réponse est en HTML.
-//         if (Exist){
-//             let html = "<h2>Annotation correspondante à l'URI " + uri + " :</h2><br><ul>"; // on crée la variable réponse html qui va contenir la liste des annotations de l'URI
-//             for (key in data){ //on parcourt toute la data
-//                 if (data[key]["URI"]==uri){ // si la clé de l'élement est le meme URI que demandé :
-//                     html += '<li><strong>Identifiant=</strong>' + key +'  <strong>Note=</strong>'+ data[key].Note +'  et <strong>Commentaire=</strong>'+ data[key].Commentaire +'</li>';
-//                 }
-//             }
-//             res.send(html); // on envoie en réponse la variable html qui contient toutes les annotations de l'URI demandé
-//          }
-//          else {
-//             res.send("Aucune annotation n'est associée à cette clé");
-//          }
-// 	}
-// 	else {
-// 		if (ChoixFormat=="Json"){ //cas où l'on choisit du json
-//             res.set('Content-Type', 'application/json');// indique que le contenu de la réponse est au format json
+    if (ChoixFormat=="html"){ // si le choix demandé est html
+		res.set('Content-Type', 'text/html'); // indique que le contenu de la réponse est en HTML.
+        if (Exist){
+            let html = "<h2>Annotation correspondante à l'URI " + uri + " :</h2><br><ul>"; // on crée la variable réponse html qui va contenir la liste des annotations de l'URI
+            for (key in data){ //on parcourt toute la data
+                if (data[key]["URI"]==uri){ // si la clé de l'élement est le meme URI que demandé :
+                    html += '<li><strong>Identifiant=</strong>' + key +'  <strong>Note=</strong>'+ data[key].Note +'  et <strong>Commentaire=</strong>'+ data[key].Commentaire +'</li>';
+                }
+            }
+            res.send(html); // on envoie en réponse la variable html qui contient toutes les annotations de l'URI demandé
+         }
+         else {
+            res.send("Aucune annotation n'est associée à cette clé");
+         }
+	}
+	else {
+		if (ChoixFormat=="Json"){ //cas où l'on choisit du json
+            res.set('Content-Type', 'application/json');// indique que le contenu de la réponse est au format json
 
-//             tab_result = {}; //on crée un tableau réésultat
-//             let i = 0;
-//             if (Exist){
-//                 for (key in data){
-//                     if (data[key]["URI"]==uri){//on ajoute dans le tableau si l'uri demandé == l'uri de l'élément de l'itération
-//                         tab_result[i] = {"IdAnnotation" : key, "Note" : data[key]["Note"], "Commentaire" : data[key]["Commentaire"]};
-//                         i++;
-//                     }
-//                 }
-//                 res.send(tab_result); // on renvoie le tableau json
+            tab_result = {}; //on crée un tableau réésultat
+            let i = 0;
+            if (Exist){
+                for (key in data){
+                    if (data[key]["URI"]==uri){//on ajoute dans le tableau si l'uri demandé == l'uri de l'élément de l'itération
+                        tab_result[i] = {"IdAnnotation" : key, "Note" : data[key]["Note"], "Commentaire" : data[key]["Commentaire"]};
+                        i++;
+                    }
+                }
+                res.send(tab_result); // on renvoie le tableau json
 
-//              }
-//              else {
-//                 res.send("Aucune annotation n'est associée à cette clé");
-//              }
-// 		}	
-// 	}
-// });
+             }
+             else {
+                res.send("Aucune annotation n'est associée à cette clé");
+             }
+		}	
+	}
+});
 
 
 
