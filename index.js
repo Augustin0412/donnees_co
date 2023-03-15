@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 //crée les annotations dans un objet dico json
-app.post("/formulaire", function(req, res){
+app.post("/formulaire", cors(),function(req, res){
 	var body = req.body; // body contient la réponse de la requete
 	data[id] = body	 // on stocke le contenu de body dans le dico data
     if (body.URI in data_uri) { // si l'URI est déjà présent, ona jote son annotation 
